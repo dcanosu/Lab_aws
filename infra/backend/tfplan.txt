@@ -1,0 +1,49 @@
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # aws_iam_policy.terraform_admin_policy will be destroyed
+  # (because aws_iam_policy.terraform_admin_policy is not in configuration)
+  - resource "aws_iam_policy" "terraform_admin_policy" {
+      - arn              = "arn:aws:iam::019682854978:policy/TerraformAutomationPolicy" -> null
+      - attachment_count = 0 -> null
+      - description      = "Permisos minimos para desplegar la App con S3 y CloudFront" -> null
+      - id               = "arn:aws:iam::019682854978:policy/TerraformAutomationPolicy" -> null
+      - name             = "TerraformAutomationPolicy" -> null
+      - path             = "/" -> null
+      - policy           = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action   = [
+                          - "s3:*",
+                          - "iam:PutBucketPolicy",
+                          - "iam:ListPolicyVersions",
+                          - "iam:GetPolicyVersion",
+                          - "iam:GetPolicy",
+                          - "iam:GetBucketPolicy",
+                          - "iam:DetachRolePolicy",
+                          - "iam:DeletePolicy",
+                          - "iam:CreatePolicy",
+                          - "iam:AttachRolePolicy",
+                          - "iam:*",
+                          - "dynamodb:*",
+                          - "cloudfront:*",
+                        ]
+                      - Effect   = "Allow"
+                      - Resource = "*"
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - policy_id        = "ANPAQJFJQRBBFCLTC53VR" -> null
+      - tags             = {} -> null
+      - tags_all         = {} -> null
+        # (1 unchanged attribute hidden)
+    }
+
+Plan: 0 to add, 0 to change, 1 to destroy.
